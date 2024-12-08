@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> sipro</title>
+        <style>
+            body{
+                background-image: url(./numbers-background-8364785.jpg);
+                background-size: cover;
+            }
+            .calculator{
+                width: 350px;
+                height: 350px;
+                border-radius: 50px;
+                border: 2px solid rgba(0, 0, 0, 0.406);
+                backdrop-filter: blur(20px);
+                display: flex;
+                flex-direction: column;
+                background-color:rgba(0, 0, 0, 0.205);
+                align-items: center;
+                align-content: center;
+                position: relative;
+                left:450px;
+                margin-top: 100px;
+            }
+
+            h1{
+                margin-top: 40px;
+            }
+
+            input{
+                width: 250px;
+                height: 40px;
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+
+            button{
+                width: 200px;
+                height: 30px;
+                margin-top: 10px;
+                border-radius: 5px;
+                color: white;
+                background-color: black;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <script>
+            function calculateInterest() {
+                const principal = parseFloat(document.getElementById('principal').value);
+                const rate = parseFloat(document.getElementById('rate').value);
+                const time = parseFloat(document.getElementById('time').value);
+
+                const interest = (principal*time*rate)/100;
+
+                document.getElementById('result').innerHTML = `interest:  ${interest.toFixed(2)}`
+            }
+        </script>
+  
+        <div class="calculator">
+           <center> <h1> SIMPLE INTEREST CALCULATOR </h1> </center>
+
+        
+        <input type="number" id="principal" placeholder="Principal" required>
+        <input type="number" id="time" required placeholder="Time in years">
+        <input type="number" id="rate" required placeholder="Interest rate">
+
+        <button type="button" onclick="calculateInterest()"> Calculate </button>
+
+        <div id="result"></div>
+        </div>
+    </body>
+</html>

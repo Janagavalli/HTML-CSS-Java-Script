@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title> ci </title>
+        <style>
+
+            body{
+                background-image: url("B");
+            }
+
+            .calculator {
+                display: flex;
+                flex-direction: column;
+                border: 2px solid gray;
+                border-radius: 50px;
+                width: 350px;
+                height: 350px;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                left: 450px;
+                top: 100px;
+                backdrop-filter: blur(30px);
+                margin: 5px;
+                padding: 10px;
+
+            }
+            
+            input{
+                height: 30px;
+                width: 15rem;
+                border-radius: 5px;
+                padding: 5px;
+                margin-top: 2px;
+            }
+
+            label{
+                font-size:larger;
+                font-style: italic;
+            }
+
+            button{
+                  background-color: yellow;
+                  width: 7rem;
+                  margin-top: 3px;
+                  border-radius: 5px;
+            }
+
+        </style>
+        <body>
+            <script>
+                function calculateInterest(){
+                const principal = parseFloat(document.getElementById('principal').value);
+                const rate = parseFloat(document.getElementById('rate').value);
+                const compound = parseFloat(document.getElementById('compound').value);
+                const time = parseFloat(document.getElementById('time').value);
+
+                const amount = principal*(Math.pow((1+rate/100),time));
+                const interest = amount - principal;
+
+                document.getElementById('result').innerHTML = ` amount: ${amount.toFixed(2)} 
+                interest: ${interest.toFixed(2)}`;
+                }
+            </script>
+
+            <div class="calculator">
+                <center> <h2> COMPOUND INTEREST CALCULATOR </h2> </center>
+
+                    <label for="principal"> Principal amount</label>
+                    <input type="number" id="principal" required>
+
+                    <label for="rate"> Annual interest rate(%) </label>
+                    <input type="number" id="rate" required>
+
+                    <label for="compound"> Compound frequency </label>
+                    <input type="number" id="compound" required>
+
+                    <label for="time"> Time period (years) </label>
+                    <input type="number" id="time" required>
+
+                    <button type="button" onclick="calculateInterest()"> calculate </button>
+                
+                <div id="result"></div>
+            </div>
+        </body>
+    </head>
+</html>
